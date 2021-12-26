@@ -1,15 +1,503 @@
-jQuery(function(){var offset=500;var back_top=jQuery('.backtop');jQuery(window).scroll(function(){(jQuery(this).scrollTop()>offset)?back_top.addClass('show_icon'):back_top.removeClass('show_icon');});if(jQuery('#progressbar').length>0){jQuery("#progressbar").progressbar({value:70});}
-if(jQuery('#progressbar2').length>0){jQuery("#progressbar2").progressbar({value:70});}
-if(jQuery('#horizontalTab').length>0){jQuery('#horizontalTab').easyResponsiveTabs({type:'default',width:'auto',fit:true,activate:function(){var $tab=jQuery(this);var $info=jQuery('#tabInfo');var $name=jQuery('span',$info);$name.text($tab.text());$info.show();}});}
-if(jQuery('#chart1').length>0){var ctx=document.getElementById('chart1');var myChart=new Chart(ctx,{type:'pie',data:{labels:['Top Cummunity','Reserved Fund','Advisor Team','Sold Globaly','Financial'],datasets:[{label:'# of Votes',data:[10,08,12,50,20],backgroundColor:['#4845b4','#4fc489','#0ba1d6','#efe943','#e9734a',],borderWidth:0,hoverOffset:false}]},options:{legend:{display:false}},});}
-if(jQuery('#chart2').length>0){var ctx=document.getElementById('chart2');var myChart=new Chart(ctx,{type:'pie',data:{labels:['Top Cummunity','Reserved Fund','Advisor Team','Sold Globaly','Financial'],datasets:[{label:'# of Votes',data:[20,50,25,15,7],backgroundColor:['#4845b4','#4fc489','#0ba1d6','#efe943','#e9734a'],borderWidth:0}]},options:{legend:{display:false},},});}
-if(jQuery('#clock').length>0){var exp_date="Dec 30, 2023 15:37:20";timer("clock",exp_date);}
-if(jQuery('#clock2').length>0){var exp_date="Dec 25, 2023 10:17:25";timer("clock2",exp_date);}
-if(jQuery('#clock3').length>0){var exp_date="Dec 20, 2023 20:50:40";timer("clock3",exp_date);}
-function timer(clockID,exp_date){var countDownDate=new Date(exp_date).getTime();var x=setInterval(function(){var now=new Date().getTime();var distance=countDownDate-now;var days=Math.floor(distance/(1000*60*60*24));var hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));var minutes=Math.floor((distance%(1000*60*60))/(1000*60));var seconds=Math.floor((distance%(1000*60))/1000);var days=(days<10)?'0'+days:days;var hours=(hours<10)?'0'+hours:hours;var minutes=(minutes<10)?'0'+minutes:minutes;var seconds=(seconds<10)?'0'+seconds:seconds;document.getElementById("days").innerHTML=days;document.getElementById("hours").innerHTML=hours;document.getElementById("mins").innerHTML=minutes;document.getElementById("secs").innerHTML=seconds;if(distance<0){clearInterval(x);document.getElementById(clockID).innerHTML="EXPIRED";}},1000);}
-if(jQuery('.timeline').length>0){timeline(document.querySelectorAll('.timeline'),{forceVerticalMode:767,mode:'horizontal',verticalStartPosition:'left',visibleItems:4});}
-if(jQuery('.video-button').length>0){jQuery(".video-button").modalVideo({youtube:{autoplay:1,controls:1},ratio:'16:9'});}
-if(jQuery('.client-logos-slider').length>0){jQuery(".client-logos-slider").owlCarousel({items:6,margin:0,loop:true,autoplay:true,mouseDrag:true,touchDrag:true,navText:['<i class="fas fa-angle-left"></i>','<i class="fas fa-angle-right"></i>'],nav:false,dotsEach:false,smartSpeed:750,dots:false,lazyLoad:true,responsive:{0:{items:2},480:{items:3},767:{items:4},991:{items:5},992:{items:6}}});}
-if(jQuery('.wow').length>0){jQuery(function(){var wow=new WOW({boxClass:'wow',animateClass:'animated',offset:0,mobile:false,live:true,scrollContainer:null,});wow.init();});}});jQuery(window).on('load',function(){setTimeout(function(){jQuery('.preloader').fadeOut('slow');},500);});jQuery(document).ready(function(){if(jQuery('.fat-nav').length>0){(function(){jQuery.fatNav();}());var fatContent=jQuery('.main-menu ul').html();var fatHeaderRight=jQuery('.header-right').html();var fatNav='<div class="fat-nav__wrapper" id="fatmenu"><ul>'+fatContent+'<div class="header-right">'+fatHeaderRight+'</div></ul></div>';jQuery('.fat-nav').html(fatNav);jQuery('#fatmenu ul li.menu-item-has-children').append("<span class='toggle_button'><small></small></span>");jQuery('#fatmenu ul ul').hide();jQuery('ul li.menu-item-has-children > .toggle_button').click(function(){if(jQuery(this).parent().children('ul').hasClass('submenu')){jQuery(this).parent().children('ul').removeClass("submenu").slideUp(400);jQuery(this).removeClass('active_item');}
-else{jQuery(this).parent().children('ul').addClass("submenu").slideDown(400);jQuery(this).addClass('active_item');}});}
-jQuery('.main-menu ul li ul').parent('li').addClass('menuarrow');});jQuery(window).resize(function(){var win_width=jQuery(window).width();if(win_width>1099){jQuery('.fat-nav').removeClass('active').css("display","none");jQuery('.hamburger').removeClass('active');}});
+(function ($) {
+
+    "use strict";
+
+    //===== Prealoder
+
+    jQuery(window).on('load', function (event) {
+        jQuery('#preloader').delay(500).fadeOut(500);
+    });
+
+    jQuery(document).on('ready', function () {
+        
+        
+        /*---canvas menu activation---*/
+        jQuery('.binduz-er-news-canvas_open').on('click', function () {
+            jQuery('.binduz-er-news-offcanvas_menu_wrapper,.binduz-er-news-off_canvars_overlay').addClass('binduz-er-news-active')
+        });
+
+        jQuery('.binduz-er-news-canvas_close,.binduz-er-news-off_canvars_overlay').on('click', function () {
+            jQuery('.binduz-er-news-offcanvas_menu_wrapper,.binduz-er-news-off_canvars_overlay').removeClass('binduz-er-news-active')
+        });
+
+
+
+        /*---Off Canvas Menu---*/
+        var $offcanvasNav = jQuery('.binduz-er-news-offcanvas_main_menu'),
+            $offcanvasNavSubMenu = $offcanvasNav.find('.binduz-er-news-sub-menu');
+        $offcanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="far fa-angle-down"></i></span>');
+
+        $offcanvasNavSubMenu.slideUp();
+
+        $offcanvasNav.on('click', 'li a, li .menu-expand', function (e) {
+            var $this = jQuery(this);
+            if (($this.parent().attr('class').match(/\b(binduz-er-news-menu-item-has-children|has-children|has-sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand'))) {
+                e.preventDefault();
+                if ($this.siblings('ul:visible').length) {
+                    $this.siblings('ul').slideUp('binduz-er-news-slow');
+                } else {
+                    $this.closest('li').siblings('li').find('ul:visible').slideUp('binduz-er-news-slow');
+                    $this.siblings('ul').slideDown('binduz-er-news-slow');
+                }
+            }
+            if ($this.is('a') || $this.is('span') || $this.attr('clas').match(/\b(binduz-er-news-menu-expand)\b/)) {
+                $this.parent().toggleClass('binduz-er-news-menu-open');
+            } else if ($this.is('li') && $this.attr('class').match(/\b('binduz-er-news-menu-item-has-children')\b/)) {
+                $this.toggleClass('binduz-er-news-menu-open');
+            }
+        });
+
+
+
+
+
+
+
+        
+        //===== Service Active slick slider        
+        var topbar_headline1 = jQuery('.binduz-er-topbar-headline');
+        topbar_headline1.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="fas fa-angle-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fas fa-angle-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            vertical: true,
+            verticalSwiping: true,
+        });
+
+        
+        //===== Service Active slick slider        
+        var topbar_headline2 = jQuery('.binduz-er-topbar-headline-2');
+        topbar_headline2.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            vertical: true,
+            verticalSwiping: true,
+
+        });
+
+        
+        //===== Service Active slick slider        
+        var featured_slider = jQuery('.binduz-er-featured-slider-item');
+        featured_slider.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="far fa-angle-left"></i></span>',
+            nextArrow: '<span class="next"><i class="far fa-angle-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+            },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+            },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+            },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+            }
+          ]
+        });
+        
+        
+        //===== Testimonial Content Slide slick slider
+        var news_slider1 = jQuery('.binduz-er-news-slider-item');
+        news_slider1.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="fal fa-long-arrow-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fal fa-long-arrow-right"></i></span>',
+            fade: true,
+            asNavFor: '.binduz-er-news-slider-content-slider'
+        });
+        var news_slider2 = jQuery('.binduz-er-news-slider-content-slider');
+        news_slider2.slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            asNavFor: '.binduz-er-news-slider-item',
+            dots: false,
+            centerMode: true,
+            arrows: false,
+            prevArrow: '<span class="prev"><i class="fal fa-arrow-left"></i> Prev</span>',
+            nextArrow: '<span class="next">Next <i class="fal fa-arrow-right"></i></span>',
+            centerPadding: "0",
+            focusOnSelect: true,
+
+        });
+        
+        //===== Service Active slick slider        
+        var topbar_headline = jQuery('.binduz-er-news-viewed-most-slide');
+        topbar_headline.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="fal fa-long-arrow-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fal fa-long-arrow-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false,
+                    }
+            }
+          ]
+
+        });
+
+        
+        //===== Service Active slick slider        
+        var topbar_headline = jQuery('.binduz-er-news-slider-2-item');
+        topbar_headline.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            prevArrow: '<span class="prev"><i class="fal fa-long-arrow-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fal fa-long-arrow-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: "50px",
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2,
+                    }
+            },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2,
+                    }
+            },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        centerPadding: "30px",
+                    }
+            },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        centerPadding: "0px",
+                    }
+            },
+          ]
+
+        });
+
+        
+        //===== Service Active slick slider        
+        var topbar_headline = jQuery('.binduz-er-featured-slider-2');
+        topbar_headline.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="fal fa-angle-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fal fa-angle-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        arrows: false,
+                    }
+            }
+          ]
+
+        });
+
+        
+        //===== Service Active slick slider        
+        var topbar_headline = jQuery('.binduz-er-top-news-2-slider');
+        topbar_headline.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="fal fa-angle-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fal fa-angle-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        arrows: false,
+                    }
+            }
+          ]
+
+        });
+        
+        //===== Service Active slick slider        
+        var topbar_headline = jQuery('.binduz-er-social-news-slide');
+        topbar_headline.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            prevArrow: '<span class="prev"><i class="fal fa-angle-left"></i></span>',
+            nextArrow: '<span class="next"><i class="fal fa-angle-right"></i></span>',
+            speed: 1500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        arrows: false,
+                    }
+            },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2,
+                    }
+            },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                    }
+            },
+          ]
+
+        });
+        
+        //===== Service Active slick slider        
+        var topbar_headline = jQuery('.binduz-er-blog-related-post-slide');
+        topbar_headline.slick({
+            dots: false,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: false,
+            speed: 1500,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1201,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2,
+                    }
+            },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 2,
+                    }
+            },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                    }
+            },
+          ]
+
+        });
+        
+
+
+    //===== shop details slide slick slider
+    var topbar_headline1 = jQuery('.hero-slide-active');
+    topbar_headline1.slick({
+        slidesToShow: 1,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        slidesToScroll: 1,
+        arrows: false,    
+        fade: true,
+        asNavFor: '.hero-portal-active'
+    });
+    var topbar_headline2 = jQuery('.hero-portal-active');
+    topbar_headline2.slick({
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        asNavFor: '.hero-slide-active',
+        dots: false,
+        centerMode: false,
+        arrows: false,
+        centerPadding: "0",
+        focusOnSelect: true,            
+        responsive: [
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1,
+                    }
+            }
+          ]
+    });
+
+
+        $('.binduz-er-newsr-popup-audio').magnificPopup({
+          type:'inline',
+          midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+        });
+
+
+        //===== Isotope Project 1
+
+        jQuery('.container').imagesLoaded(function () {
+            var $grid = jQuery('.binduz-er-grid').isotope({
+                // options
+                transitionDuration: '1s'
+            });
+
+            // filter items on button click
+            jQuery('.binduz-er-project-menu ul').on('click', 'li', function () {
+                var filterValue = jQuery(this).attr('data-filter');
+                $grid.isotope({
+                    filter: filterValue
+                });
+            });
+
+            //for menu active class
+            jQuery('.binduz-er-project-menu ul li').on('click', function (event) {
+                jQuery(this).siblings('.binduz-er-active').removeClass('binduz-er-active');
+                jQuery(this).addClass('binduz-er-active');
+                event.preventDefault();
+            });
+        });
+
+
+        //====== Magnific Popup
+
+        jQuery('.binduz-er-video-popup').magnificPopup({
+            type: 'iframe'
+            // other options
+        });
+
+
+        //===== Magnific Popup
+
+        jQuery('.binduz-er-image-popup').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+        
+        
+        //===== Search 
+
+        $('.binduz-er-news-search-open').on('click', function () {
+            $('.binduz-er-news-search-box').addClass('open')
+        });
+
+        $('.binduz-er-news-search-close-btn').on('click', function () {
+            $('.binduz-er-news-search-box').removeClass('open')
+        });
+
+        
+        
+        
+        //===== NICE SELECT
+        $('.binduz-er-select-item select').niceSelect();
+
+
+        //===== Back to top
+
+        // Show or hide the sticky footer button
+        jQuery(window).on('scroll', function (event) {
+            if (jQuery(this).scrollTop() > 600) {
+                jQuery('.binduz-er-back-to-top').fadeIn(200)
+            } else {
+                jQuery('.binduz-er-back-to-top').fadeOut(200)
+            }
+        });
+
+
+        //Animate the scroll to yop
+        jQuery('.binduz-er-back-to-top').on('click', function (event) {
+            event.preventDefault();
+
+            jQuery('html, body').animate({
+                scrollTop: 0,
+            }, 1500);
+        });
+
+
+
+
+        
+
+
+    });
+
+
+
+
+})(jQuery);
