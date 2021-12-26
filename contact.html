@@ -1,280 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Cryptu - Cryptocurrency Bootstrap 5 HTML Template</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>NewsPro - Blog & Magazine Html5 Template</title>
 
-<link rel="shortcut icon" href="assets/img/favicon.png" />
+    <link rel="icon" href="assets/img/favicon.png">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="assets/css/vendor.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&amp;display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/fontawesome.min.css" />
-
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-
-<link rel="stylesheet" href="assets/css/jquery.fatNav.css" />
-
-<link rel="stylesheet" href="assets/css/animate.css" />
-
-<link rel="stylesheet" href="assets/css/chart.css" />
-
-<link rel="stylesheet" href="assets/css/style.css" />
-
-<link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-<body>
+<body class="home-newspro">
 
-<div class="preloader">
-<div class="loader"></div>
-</div>
+    <!-- preloader area start -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- search popup area start -->
+    <div class="search-popup" id="search-popup">
+        <form action="home.html" class="search-form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search.....">
+            </div>
+            <button type="submit" class="submit-btn"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <!-- //. search Popup -->
+    <div class="body-overlay" id="body-overlay"></div>
+
+    <!-- topbar end-->
+    <div class="topbar-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="topbar-left text-md-left text-center">
+                        <span>Tranding</span>Every success is helped by someone behind the people
+                    </div>
+                </div>
+                <div class="col-md-5 align-self-center text-md-right text-center d-none d-lg-block">
+                    <div class="topbar-right">
+                        <ul>
+                            <li><img src="assets/img/icon/cloud.png" alt="img">Dhaka 360</li>
+                            <li><img src="assets/img/icon/calendar.png" alt="img">Monday - July 2, 2021</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- topbar end-->
+
+    <div class="adbar-area d-none d-lg-block pd-top-30 pd-bottom-30" style="background-color: #F1F4FF;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 align-self-center">
+                    <div class="logo text-md-left text-center">
+                        <a class="main-logo" href="home.html"><img src="assets/img/logo.png" alt="img"></a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-right text-center">
+                    <a href="#" class="adbar-right">
+                        <img src="assets/img/ad/9.png" alt="img">
+                    </a>
+                </div>
+                <div class="col-lg-3 align-self-center">
+                    <ul class="social-area d-flex">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-whatsapp"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li class="user ms-auto"><a href="#"><i class="fa fa-user"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navbar start -->
+    <div class="navbar-area">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container nav-container">
+                <div class="responsive-mobile-menu">
+                    <div class="logo d-lg-none d-block">
+                        <a class="main-logo" href="home.html"><img src="assets/img/logo.png" alt="img"></a>
+                    </div>
+                    <button class="menu toggle-btn d-block d-lg-none" data-target="#miralax_main_menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-left"></span>
+                        <span class="icon-right"></span>
+                    </button>
+                </div>
+                <div class="nav-right-part nav-right-part-mobile">
+                    <a class="cart-header" href="#"><img src="assets/img/icon/cart.png" alt="img"><span>5</span></a>
+                    <a class="search header-search" href="#"><i class="fa fa-search"></i></a>
+                </div>
+                <div class="collapse navbar-collapse" id="miralax_main_menu">
+                    <ul class="navbar-nav menu-open">
+                        <li class="menu-item-has-children current-menu-item">
+                            <a href="#">Home</a>
+                            <ul class="sub-menu">
+                                <li><a href="home.html">Home 01</a></li>
+                                <li><a href="index-2.html">Home 02</a></li>
+                                <li><a href="index-3.html">Home 03</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog-category.html">Category</a></li>
+                        <li class="menu-item-has-children current-menu-item">
+                            <a href="#">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog-category.html">Blog Category</a></li>
+                                <li><a href="blog-gallery.html">Blog Gallery</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children current-menu-item">
+                            <a href="#">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-category.html">Blog Category</a></li>
+                                <li><a href="blog-gallery.html">Blog Gallery</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right-part nav-right-part-desktop">
+                    <a class="search header-search" href="#"><i class="fa fa-search"></i></a>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- navbar end -->
+
+    <!-- contact area Start -->
+    <div class="contact-area bg-gray pd-top-30 pd-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-inner">
+                        <i class="fa fa-home"></i>
+                        <ul class="page-list">
+                            <li><a href="home.html">Home</a></li>
+                            <li>Contact Us</li>
+                        </ul>
+                    </div>
+                    <div class="contact-area-wrap">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h5>Our Address</h5>
+                                <h3>Contact Information</h3>
+                                <div class="single-contact-wrap media">
+                                    <div class="icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Mail Information</h5>
+                                        <p>Kargillnews@gmail.coms</p>
+                                    </div>
+                                </div>
+                                <div class="single-contact-wrap media">
+                                    <div class="icon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Our Main Office Address</h5>
+                                        <p>FA - 154 Careon Street, California, USA</p>
+                                    </div>
+                                </div>
+                                <div class="single-contact-wrap media">
+                                    <div class="icon">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5>Call Us Now</h5>
+                                        <p>+435-64773728, +062-35363782</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <h5>Our Address</h5>
+                                <h3>Type Message</h3>
+                                <form class="contact-form">  
+                                    <div class="single-input-wrap input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-user"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Your Full Name*">
+                                    </div>
+                                    <div class="single-input-wrap input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Your Email*">
+                                    </div>
+                                    <div class="single-input-wrap with-select">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="fa fa-cog"></i></div>
+                                        </div>
+                                        <select>
+                                            <option>Select a Service</option>
+                                            <option value="1">3 Month</option>
+                                            <option value="2">6 Month</option>
+                                            <option value="3">9 Month</option>
+                                            <option value="4">12 Month</option>
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="single-input-wrap input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fa fa-phone"></i></div>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Phone Number*">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="single-input-wrap input-group">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><img src="assets/img/map-marker.png" alt="img"></div>
+                                                </div>
+                                                <input type="text" class="form-control" placeholder="Website(optional)*">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn">Contact Us</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact area End -->
+
+    <!-- footer area start -->
+    <footer class="footer-area pd-top-60" style="background-image: url(assets/img/footer/bg.png);">
+        <div class="container">
+            <div class="subscribe-area">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section-title text-center">
+                            <h2 class="text-white">Subscribe For Newsletter</h2>
+                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="footer-subscribe-inner">
+                                <input type="text" placeholder="Enter Email address">
+                                <button><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-top">
+                <div class="row justify-content-center">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-8">
+                        <div class="widget widget_about">
+                            <div class="logo">
+                                <img src="assets/img/logo-2.png" alt="img">
+                            </div>
+                            <p class="text-white mt-5 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                            <ul class="social-area social-area-2">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 col-sm-6">
+                        <h5 class="widget-title">Useful Link</h5>
+                        <div class="widget widget_link">
+                            <ul>
+                                <li><a href="#">Contact Us
+                                </a></li>
+                                <li><a href="#">About Us
+                                </a></li>
+                                <li><a href="#">Fox Around the World
+                                </a></li>
+                                <li><a href="#">Advertise With Us
+                                </a></li>
+                                <li><a href="#">Ad Choices
+                                </a></li>
+                                <li><a href="#">Media Relations
+                                </a></li>
+                                <li><a href="#">Compliance
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <h5 class="widget-title">Top Categories</h5>
+                        <div class="widget widget_link">
+                            <ul>
+                                <li><a href="#">Fashion
+                                </a></li>
+                                <li><a href="#">Technology
+                                </a></li>
+                                <li><a href="#">Lifestyle
+                                </a></li>
+                                <li><a href="#">Travel
+                                </a></li>
+                                <li><a href="#">Sports
+                                </a></li>
+                                <li><a href="#">World
+                                </a></li>
+                                <li><a href="#">Health
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-8">
+                        <div class="widget widget_post_list">
+                            <h5 class="widget-title">Latest Posts</h5>
+                            <div class="media-post-wrap media">
+                                <div class="thumb">
+                                    <img src="assets/img/widget/1.png" alt="img">
+                                </div>
+                                <div class="media-body">
+                                    <a class="tag text-pink" href="#">Lifestyle</a>
+                                    <div class="meta">
+                                        <div class="date">
+                                            <i class="fa fa-clock-o"></i>
+                                            July 12, 2021
+                                        </div>
+                                    </div>
+                                    <h6><a href="#">Brings big changes in
+                                        people's lives.</a></h6>
+                                </div>
+                            </div>
+                            <div class="media-post-wrap media">
+                                <div class="thumb">
+                                    <img src="assets/img/widget/2.png" alt="img">
+                                </div>
+                                <div class="media-body">
+                                    <a class="tag text-red" href="#">Fashion</a>
+                                    <div class="meta">
+                                        <div class="date">
+                                            <i class="fa fa-clock-o"></i>
+                                            July 12, 2021
+                                        </div>
+                                    </div>
+                                    <h6><a href="#">Brings big changes in
+                                        people's lives.</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <p>Copyright 2021. All Right Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer area end -->
+
+    <!-- back to top area start -->
+    <div class="back-to-top">
+        <span class="back-top"><i class="fa fa-angle-double-up"></i></span>
+    </div>
+    <!-- back to top area end -->
 
 
-<div id="wrapper" class="overflow-hidden">
-<div class="fat-nav"></div>
-
-<header class="header-container position-absolute">
-<div class="container">
-<div class="header-area d-flex flex-wrap justify-content-between">
-<div class="logo">
-<a href="index.html"><img src="assets/img/logo.png" alt="" width="216" height="39" /></a>
-</div>
-<div class="menu-area d-flex flex-wrap">
-<nav class="main-menu">
-<ul class="nav">
-<li class="current-menu-item menu-item-has-children"><a href="index.html">Home</a>
-<ul>
-<li><a href="index.html">Home One</a></li>
-<li><a href="index-2.html">Home Two</a></li>
-<li><a href="index-3.html">Home Three</a></li>
-</ul>
-</li>
-<li><a href="about.html">About</a></li>
-<li><a href="token-sale.html">Token Sale</a></li>
-<li class="menu-item-has-children"><a href="#">Pages</a>
-<ul>
-<li><a href="about.html">About Us</a></li>
-<li><a href="team.html">Team Members</a></li>
-<li><a href="token-sale.html">Token Sale</a></li>
-<li><a href="faq.html">Faq</a></li>
-<li><a href="road-map.html">Road Map</a></li>
-<li><a href="404.html">404 Error</a></li>
-<li><a href="term-condition.html">Terms & Conditions</a></li>
-<li><a href="privacy-policy.html">Privacy Policy</a></li>
-</ul>
-</li>
-<li><a href="road-map.html">Road Map</a></li>
-<li class="menu-item-has-children"><a href="#">Blog</a>
-<ul>
-<li><a href="blog-1.html">Blog One</a></li>
-<li><a href="blog-2.html">Blog Two</a></li>
-<li><a href="blog-single.html">Blog single</a></li>
-</ul>
-</li>
-<li><a href="contact.html">Contact</a></li>
-</ul>
-</nav>
-<div class="header-right">
-<div class="device-btn"><a href="contact.html">Get Started</a></div>
-</div>
-</div>
-</div>
-</div>
-</header>
-
-
-<div class="page-banner">
-<div class="container">
-<div class="row banner-content-area justify-content-center">
-<div class="col-12 col-md-6  text-center wow fadeInUp" data-wow-duration="0.9s" data-wow-delay=".5s">
-<h1 class="text-white pb-3">Contact Us</h1>
-<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="contact-container pt-40">
-<div class="contact-content">
-<div class="container">
-<div class="row justify-content-between mb-2 pt-70 pb-90 mb-pt-20 mb-pb-30 contact-content-area">
-<div class="col-12 col-md-5 contact-info wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-<div class="contact-us">
-<h3>Contact us</h3>
-<h2>Get In Touch</h2>
-<p>Curabitur dictum id neque sit amet aliquam. Integer vitae nibh quis sapien consequat condimentum.</p>
-<ul class="contact-social">
-<li>
-<div class="social-row">
-<a href="#"><span><i class="far fa-phone"></i></span>
-<p>(+1) 123 456 7894</p></a>
-</div>
-</li>
-<li>
-<div class="social-row">
-<a href="#"><span><i class="far fa-envelope"></i></span>
-<p><span class="__cf_email__" data-cfemail="274e49414867425f464a574b420944484a">[email&#160;protected]</span></p></a>
-</div>
-</li>
-<li>
-<div class="social-row">
-<span><a href="#"><i class="far fa-map-marker-alt"></i></a></span>
-<p>24103 Loving Acres Road, <br />New York, USA</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="col-12 col-md-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-<form method="post" action="/cryptu/assets/php/contact.php" id="contact-form">
-<div class="d-flex flex-wrap form-col">
-<div class="form-group">
-<input class="form-control" type="text" name="name" placeholder="Your name" required />
-<span class="alert-error"></span>
-</div>
-<div class="form-group">
-<input class="form-control" type="email" name="email" placeholder="Your email" required />
-<span class="alert-error"></span>
-</div>
-</div>
-<div class="form-group">
-<input class="form-control" type="text" name="subject" placeholder="Subject" required />
-<span class="alert-error"></span>
-</div>
-<div class="form-group">
-<textarea class="form-control" name="message" rows="7" cols="7" placeholder="Your message here" required></textarea>
-<span class="alert-error"></span>
-</div>
-<div class="submit-col">
-<button type="submit">Send Message</button>
-</div>
-<div class="col-md-12 my-2">
-<div class="form-messege text-success fw-bold"></div>
-</div>
-</form>
-</div>
-</div>
-<div class="g-map">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.03927096447748!3d40.759040329405195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a01c8df6fb3cb8!2sSolomon%20R.%20Guggenheim%20Museum!5e0!3m2!1sen!2sbd!4v1619410634508!5m2!1sen!2sbd" class="w-100" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="container">
-<div class="row">
-<div class="newsletter-content wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-<h2>Subscribe to Our Newsletter</h2>
-<div class="form-group newsletter-field">
-<form action="#" method="post">
-<input class="form-control" type="email" name="EMAIL" placeholder="Your email" />
-<button type="submit"> <i class="far fa-paper-plane"></i> </button>
-</form>
-</div>
-</div>
-</div>
-</div>
-
-
-<footer class="footer-container">
-<div class="container">
-<div class="row pb-50 mb-pb-20 footer-top-content overflow-hidden">
-<div class="col-12 col-md-6 col-lg-5 footer-col wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-<div class="footer-cryptu">
-<div class="footer-logo">
-<img src="assets/img/logo.png" alt="" />
-</div>
-<p>Fusce venenatis massa nec nibh euismod, nec lobortis enim aliquam. Aenean are pellentesque efficitur nisi a blandit.</p>
-<ul class=" d-flex flex-wrap social-link">
-<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-<li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-</ul>
-</div>
-</div>
-<div class="col-12 col-md-6 col-lg-2 footer-col link-hover wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-<h4>Company</h4>
-<ul>
-<li><a href="#">About us</a></li>
-<li><a href="#">Team Members</a></li>
-<li><a href="#">Our Services</a></li>
-<li><a href="#">Privacy Policy</a></li>
- <li><a href="#">Terms & Conditions</a></li>
-</ul>
-</div>
-<div class="col-12 col-md-6 col-lg-2 footer-col link-hover wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
-<h4>Useful Links</h4>
-<ul>
-<li><a href="#">Faq</a></li>
-<li><a href="#">Token Sale</a></li>
-<li><a href="#">Contact Us</a></li>
-<li><a href="#">Crypto Currenty</a></li>
-<li><a href="#">Help Center</a></li>
-</ul>
-</div>
-<div class="col-12 col-md-6 col-lg-3 footer-col wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
-<h4>Contact us</h4>
-<ul>
-<li>
-<div class="foo-social">
-<span><a href="#"><i class="far fa-map-marker-alt"></i></a></span>
-<p>24103 Loving Acres Road, <br> New York, USA</p>
-</div>
-</li>
-<li>
-<div class="foo-social">
-<a href="#"><span><i class="far fa-envelope"></i></span>
-<p><span class="__cf_email__" data-cfemail="1c75727a735c79647d716c7079327f7371">[email&#160;protected]</span></p></a>
-</div>
-</li>
-<li>
-<div class="foo-social">
-<a href="#"><span><i class="far fa-phone"></i></span>
-<p>(+1) 123 456 7894</p></a>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
-<div class="d-flex flex-wrap justify-content-between footer-bottom-content">
-<p class="order-2 order-lg-1">&copy; Copyright 2021 <a href="#"> CRYPTU </a> All Rights Reserved.</p>
-<ul class="d-flex flex-wrap order-1 order-sm-1 order-md-1 order-lg-2">
-<li><a href="#">Terms & Conditions</a></li>
-<li><a href="#">Privacy Policy</a></li>
-<li><a href="#">Support</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</footer>
-
-<a class="backtop" href="#wrapper"><i class="far fa-long-arrow-up"></i></a>
-</div>
-
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.6.0.min.js"></script>
-
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-
-<script src="assets/js/jquery.fatNav.js"></script>
-
-<script src="assets/js/easy-responsive-tabs.js"></script>
-
-<script src="assets/js/chart.min.js"></script>
-
-<script src="assets/js/wow.min.js"></script>
-
-<script src="assets/js/contact-form.js"></script>
-
-<script src="assets/js/main.js"></script>
+    <!-- all plugins here -->
+    <script src="assets/js/vendor.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- main js  -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
